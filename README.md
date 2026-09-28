@@ -50,7 +50,7 @@ You also need Node 18+, Python 3.10+ and ffmpeg 7+.
 5. **Read time:** each line stays on screen for at least 0.6 s + 0.22 s per word, once fully revealed.
 6. **Keep the real product on screen** for at least half of an ad, rebuilt in HTML from screenshots. Never animate a screenshot.
 7. **Never drift type.** A slow push under a headline makes the text swim.
-8. **Frame 0 is the thumbnail.** The hook and the "who is this for" line are fully visible before anything moves.
+8. **Hook in the first second.** Say who it's for and why they should care before the viewer can scroll away. Claude picks the thumbnail: the strongest frame in the film, exported as the poster.
 9. **A person watches it playing before it's done.** Agents can't watch video. Checks catch defects; they don't make a film good.
 
 ## Licence

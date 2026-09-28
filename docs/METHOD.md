@@ -43,7 +43,7 @@ Collect the product before any idea exists.
 One page under `## Treatment` at the top of `PLAN.md`. No code before the reviewer approves it.
 
 ```
-Offer and audience:  the offer; the frame-0 call-out per ad ("Running ads on Meta or LinkedIn?")
+Offer and audience:  the offer; the audience call-out per ad ("Running ads on Meta or LinkedIn?"), on screen in the first second
 Idea:                one sentence
 Films:               which, format, length, placement; one feature per ad
 Product on screen:   which screens to rebuild (screenshot paths), where each is the hero
@@ -104,7 +104,7 @@ Before C2 there's no render to measure. At C0 and C1, check the facts against `B
 |---|---|
 | Safe area, type size, read time, overlaps, `seek` purity (`qa_page.js`) | Whether the easing and camera feel weighted or floaty |
 | Punctuation, holds, hits, grade, palette (`measure.py`) | Whether the timing lands, and whether music and cuts agree |
-| Product share and size, ad length, frame 0 | Whether the product looks convincing and desirable |
+| Product share and size, ad length, the hook in the first second | Whether the product looks convincing and desirable |
 | Frame time ≤ 25 ms | Whether the idea is strong and the copy sells |
 | Facts against `BRAND.md` and the site | Whether it looks like every other film |
 | File QA: format, colour, loudness (`qa_file.py`) | Whether it's done |

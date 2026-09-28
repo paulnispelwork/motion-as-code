@@ -117,7 +117,8 @@ A new mechanic (a new shader, 3D technique or physics) gets proven on a known-go
 ## 9. Ads
 
 - **Length:** 10–12 s (17–19 beats at 96 BPM).
-- **Frame 0 is the thumbnail:** the audience call-out ("Running ads on Meta or LinkedIn?") and the hook visual are fully visible at t = 0. The call-out stays until the end card.
+- **The hook lands in the first second:** the audience call-out ("Running ads on Meta or LinkedIn?") and the hook visual are readable by 1 s. The call-out stays until the end card.
+- **The thumbnail is chosen, not assumed:** pick the frame that reads best as a still, with the product or the hook big and the message clear, and export it as the poster (`stills.js --t <time> --png`). Say which frame you picked and why.
 - **Structure:** the hook, one feature shown in the product, then the end card (logo, promise, "For [audience]", CTA).
 - **Each format is composed for its own frame.** A 4:5 ad is never a crop of the 9:16.
 - **CTA:** no URL on screen, and the CTA matches the real offer.
@@ -153,7 +154,7 @@ Run this before a draft goes to the reviewer. The tools are in [pipeline/tools/m
 | Ad length | 10–12 s |
 | Product | share and width per §6 |
 | Type | sizes per §5; `qa_page.js` passes |
-| Frame 0 | call-out and hook fully visible |
+| First second | call-out and hook readable by 1 s; a thumbnail frame picked |
 | Frame time | p95 ≤ 25 ms |
 | Sound | present; payoff loudest |
 | Transitions | 0.1-beat strips: no mud, no text left on screen as something emerges |

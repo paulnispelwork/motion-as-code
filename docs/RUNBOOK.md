@@ -135,7 +135,7 @@ Sound-only changes never need a re-render.
 ## Deliver
 
 - **`deliver/`:** only files that passed file QA, named `<client>-<film>-<topic>-v<n>.mp4`, HQ plus web.
-- **Poster:** the frame at t = 0 is the thumbnail, so design it in the page.
+- **Poster:** pick the strongest frame as the thumbnail and export it with `node stills.js --page <film>.html --out ../deliver/poster --t <time> --png`. Upload it as the ad's or video's cover.
 - **`share-copy.txt`:** 1–3 postable sentences, never "excited to share".
 - **Music rights:** the licence or generator terms stay in `music/`. Never deliver an uncleared track.
 - **Files:**
