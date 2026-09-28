@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="film-size" content="1920x1080">
+<title>motion.js demo</title>
+<style>
+html, body { margin: 0; overflow: hidden; background: #222; font-family: system-ui, sans-serif; }
+#stage { position: absolute; width: 1920px; height: 1080px; overflow: hidden; background: #222; color: #eee; }
+.txt { position: absolute; left: 0; right: 0; text-align: center; font-weight: 700; letter-spacing: -0.03em; }
+.m { display: inline-block; overflow: hidden; vertical-align: top; padding: 0.06em 0.05em 0.2em; margin: -0.06em -0.05em -0.2em; }
+.m > i { display: inline-block; font-style: normal; }
+#flood { position: absolute; inset: 0; background: #eee; }
+#logo { position: absolute; left: 760px; top: 300px; width: 400px; height: 400px; }
+#logo svg { width: 100%; height: 100%; display: block; overflow: visible; }
+#n { position: absolute; left: 0; right: 0; top: 760px; text-align: center; font-size: 90px; font-weight: 800; color: #222; }
+</style>
+</head>
+<body>
+<div id="stage"><div id="shape"></div><div class="txt" id="h" data-qa="h" style="top:420px;font-size:140px">Reusable <span id="hl">mechanics.</span></div>
+<div id="flood"></div><div id="logo"></div><div id="n" data-qa="n">0</div></div>
+<script src="../engine.js"></script>
+<script src="../motion.js"></script>
+<script>
+// Exercises: shapeTrack + inkBehind (highlighter), flood, drawableLogo (a monoline S), countUp.
+Film.start({ bpm: 90, beats: 16, width: 1920, height: 1080, fonts: [], build() {
+  const words = splitMask($("h")), HLW = words.filter((w) => w.closest("#hl")), HL = hlBox(unionOf(HLW), 140);
+  const X = HLW.map((w) => rectOf(w.parentNode).L), Y = HLW.map((w) => rectOf(w).T);
+  const S = shapeTrack([{ b: 0, box: hlStart(HL), r: 16 }, { b: 2, box: HL, r: 16, pe: LIQUID }, { b: 5, box: { L: -50, R: 1970, T: -50, B: 1130 }, r: 0, p: SP.snap }]);
+  const logo = drawableLogo({ viewBox: "0 0 40 40", strokeWidth: 7, line: "M30 8C22 2 8 6 10 14S30 22 30 30 16 40 8 32",
+    mark: "M30 8C22 2 8 6 10 14S30 22 30 30 16 40 8 32" }, { color: "#222" });
+  logo.mark.setAttribute("fill", "none"); logo.mark.setAttribute("stroke", "#222"); logo.mark.setAttribute("stroke-width", 5); logo.mark.setAttribute("stroke-linecap", "round");
+  $("logo").appendChild(logo.el);
+  return {
+    seek(t) {
+      mask(words, t, 0.2, 0.2, 5.2);
+      const s = S(t); placeShape($("shape"), s, "#F3B545");
+      HLW.forEach((w, i) => inkBehind(w, t > at(1.9) && t < at(5.3) ? s.R - X[i] : -1e4, s.B - Y[i], "#eeeeee", "#222222"));
+      flood($("flood"), t, 7, [960, 540]);
+      logo.draw(ease(span(t, 8, 11)));
+      $("n").textContent = countUp(t, 11, 13, 2600, "+");
+      $("n").style.display = t > at(7.5) ? "" : "none";
+    },
+  };
+} });
+</script>
+</body>
+</html>

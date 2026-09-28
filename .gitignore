@@ -1,0 +1,9 @@
+node_modules/
+.venv/
+__pycache__/
+.DS_Store
+films/*/out/
+films/*/qa/
+films/*/review/
+films/*/deliver/
+*.part.mp4

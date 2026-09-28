@@ -1,0 +1,10 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="film-size" content="1920x1080"><title>impure layout (known-bad)</title>
+<style>html,body{margin:0;background:#222;color:#eee;font:700 80px system-ui}#stage{position:absolute;width:1920px;height:1080px}#box{background:#555;width:600px}</style></head>
+<body><div id="stage" style="padding:100px"><div id="box"></div><div data-qa="t">Below the box</div></div>
+<script src="../engine.js"></script>
+<script>
+// Known-bad page for qa_page.js: the box height swings below zero half the time; a negative height is invalid CSS,
+// so the previous frame's height sticks and the text below it lands elsewhere when seeked fresh. Must FAIL.
+Film.start({ bpm: 90, beats: 8, width: 1920, height: 1080, fonts: [], build() { return { seek(t) { $("box").style.height = `${(Math.sin(t * 3) * 300).toFixed(1)}px`; } }; } });
+</script></body></html>

@@ -1,0 +1,8 @@
+{
+  "name": "motion-as-code",
+  "private": true,
+  "description": "Film-as-a-web-page pipeline: stills, render, QA. See docs/RUNBOOK.md.",
+  "dependencies": {
+    "playwright-core": "^1.63.0"
+  }
+}

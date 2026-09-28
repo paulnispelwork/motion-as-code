@@ -1,0 +1,10 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="film-size" content="1920x1080"><title>impure (known-bad)</title>
+<style>html,body{margin:0;background:#222;color:#eee;font:700 120px system-ui}#stage{position:absolute;width:1920px;height:1080px}</style></head>
+<body><div id="stage"><div id="n" data-qa="n" style="position:absolute;left:200px;top:400px">0</div></div>
+<script src="../engine.js"></script>
+<script>
+// Known-bad page for qa_page.js: seek() keeps state (a running counter), so the purity gate must FAIL.
+let calls = 0;
+Film.start({ bpm: 90, beats: 8, width: 1920, height: 1080, fonts: [], build() { return { seek(t) { calls++; $("n").textContent = "Seek " + calls; } }; } });
+</script></body></html>
